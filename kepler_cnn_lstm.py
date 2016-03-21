@@ -49,10 +49,6 @@ X_test = X_test.as_matrix()
 y_test = pd.read_csv(data_file4, delimiter=',', error_bad_lines=False, header=None)
 y_test = y_test.as_matrix()
 
-#(X_train, y_train), (X_test, y_test) = imdb.load_data(nb_words=max_features, test_split=0.2)
-
-#print(raw_input('123...'))
-
 print(len(X_train), 'train sequences')
 print(len(X_test), 'test sequences')
 
