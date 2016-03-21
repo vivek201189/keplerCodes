@@ -8,7 +8,6 @@ from keras.layers.core import Dense, Dropout, Activation, Flatten
 from keras.optimizers import SGD
 from keras.layers.convolutional import Convolution1D, MaxPooling1D, ZeroPadding1D
 
-
 # set parameters:
 batch_size = 16
 input_length=100
@@ -39,7 +38,6 @@ print(y_test.shape)
 
 print('Build model...')
 model = Sequential()
-
 
 model.add(Convolution1D(nb_filter=64,
                         filter_length=3,
@@ -94,11 +92,11 @@ model.add(Convolution1D(nb_filter=512,
 model.add(Flatten())
 
 #two FC layers
-model.add(Dense(128))
+model.add(Dense(1024))
 model.add(Activation('relu'))
-model.add(Dropout(0.25))
-model.add(Dense(128))
-model.add(Dropout(0.25))
+model.add(Dropout(0.50))
+model.add(Dense(1024))
+model.add(Dropout(0.50))
 model.add(Activation('relu'))
 
 # We project onto a single unit output layer, and squash it with a sigmoid:
