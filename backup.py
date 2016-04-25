@@ -8,7 +8,7 @@ import glob
 
 def loaddata():
     path1='/home/vivek/anaconda2/0021_superEarths/0021_superEarths/3days/'
-    step = 0.1
+    step = 1000
     #index = 0
     #name0 = []
     name1 = []
