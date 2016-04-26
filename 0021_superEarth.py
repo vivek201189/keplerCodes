@@ -16,19 +16,6 @@ def loaddata():
     initial_location = []
     period = 3
     star = dict()
-
-    for filename in glob.glob(os.path.join(path1,'*.fits')):
-        name1.append(filename)
-    summ = 0
-    
-    for i in range(len(name1)):
-        data1 = fits.getdata(name1[i])
-        time = data1[0]
-        length = len(time)
-        summ = summ + int(length/step) #is this to merge many dips into one single strong dip
-    #print summ
-    
-#loading data into matrix
     
     for filename in glob.glob(os.path.join(path1, '*.fits')):
         dir_len = len(path1)
@@ -39,6 +26,8 @@ def loaddata():
             star[star_name] = max(star[star_name], num_tmp)
         else:
             star[star_name] = num_tmp
+        '''through this for loop, for every star, we get the maximum quarter number 
+        it has and hence populate the star dictionary'''
 
     s = (step, 121064)
     trainx = np.zeros(s)
@@ -59,7 +48,12 @@ def loaddata():
             time.extend(data2[0])
             flux.extend(data2[1])
         initialtime = time[0] + period
-
+        
+        '''through this for loop, we get the time and flux matrix for all the stars 
+        spanning the max/corresponding number of quarters for which a star recorded activity. So,
+        if star 1 has activity for 14 quarters, this for loop will run 14 times to collect all the
+        time and flux values.'''
+        
         k = 0
         t = 0
         
