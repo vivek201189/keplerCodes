@@ -9,9 +9,6 @@ import glob
 def loaddata():
     path1='/home/vivek/anaconda2/0021_superEarths/0021_superEarths/3days/'
     step = 1000
-    #index = 0
-    #name0 = []
-    name1 = []
     transits = []
     initial_location = []
     period = 3
@@ -73,13 +70,12 @@ def loaddata():
             for m in range(len(transits)):
                 if(time[initial] < transits[m] and transits[m] < time[initial + step]):
                     trainy[j+index] = 1
-            print(trainy[j+index])
+            #print(trainy[j+index])
             #plt.show()
             trainx[:, j+index] = fluxtem
             initial = initial + step
         
         index = index + int(math.floor(len(time)/step)-1)
-        #il = il + 1
     
     p = 'x_0021superearth_3days.txt'
     q = 'y_0021superearth_3days.txt'
